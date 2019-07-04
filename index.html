@@ -105,6 +105,9 @@
 
 		titleEl.innerHTML = options.labelText;
 		bgEl.setAttribute("src", options.bgImage);
+		if ($(window).width() > 1023) {
+			bgEl.style.maxWidth = containerWidth + 'px';
+		}
 		linkEl.setAttribute("href", options.bgClickURL);
 		wrapperEl.style.width = containerWidth + 'px';
 		wrapperBgEl.style.width = containerWidth + 'px';
@@ -112,6 +115,9 @@
 
 		window.onresize = function(event) {
 			let containerWidth = document.querySelector('.js-interscroll').offsetWidth;
+			if ($(window).width() > 1023) {
+				bgEl.style.maxWidth = containerWidth + 'px';
+			}
 			wrapperEl.style.width = containerWidth + 'px';
 			wrapperBgEl.style.width = containerWidth + 'px';
 			wrapperBgEl.style.clip = "rect(0," + containerWidth + "px,70vh,0)";
